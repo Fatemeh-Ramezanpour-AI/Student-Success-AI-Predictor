@@ -1,29 +1,44 @@
-# Student Success AI Predictor – v1.0
+# 🎓 Student Success AI Predictor
 
-**Author:** Fatemeh Ramezanpour – 12th-grade student, Iran  
-**Why this repo?**  
-- I started this **only weeks after learning Python**, to **test myself**, **practise clean code**, and **build something useful** – **not for show**.  
-- **Full logic, structure, and Git history are mine**; AI assistant was used **only for typing speed**.  
+A simple machine learning project that predicts student success based on study habits, sleep hours, and other factors.  
+This was my **first AI project**, written from scratch in Google Colab — a beginner-friendly start toward understanding data preprocessing, visualization, and modeling.  
 
-## What You See
-- **v1.0** → student-grade predictor (72 % acc, R² = 0.53)
-- **v-next** → Persian **handwriting OCR** (my own letters)
-- **v-after** → **marine-litter %** from beach photos (my own camera)
+---
 
-## Files
-- `Student-Success-AI-Predictor.ipynb` – full EDA & training
-- `contentdataset_challenge1_ai.csv` – raw dataset
-- `student_success_model.pkl` – trained model
-- `app.py` – English Streamlit web-app
-- `requirements.txt` – dependencies
-- `LICENSE` – MIT
+## 🚀 Overview
 
-## Live Demo
-[Click here](https://share.streamlit.io/Fatemeh-Ramezanpour-AI/student-success-ai-predictor/main/app.py)
+This project analyzes how factors such as **study hours**, **sleep hours**, and **parental education** influence a student's final grade.  
+The model tries to classify students as **successful** or **less successful** based on their academic behavior and habits.
 
-## How to Run Locally
-```bash
-git clone https://github.com/Fatemeh-Ramezanpour-AI/student-success-ai-predictor.git
-cd student-success-ai-predictor
-pip install -r requirements.txt
-streamlit run app.py
+---
+
+## 🧠 Data Preprocessing
+
+### 🔹 Handling Missing and Invalid Data
+Our null values only appeared in the **parents’ education** column.  
+Although we could ignore them, we decided to **replace missing values** to prevent possible future errors if new data includes blanks.
+
+### 🔹 Feature Observations
+- Students who **study more hours per week** and **complete more assignments** tend to receive **higher final grades**.  
+- By setting the success boundary at **70**, the number of successful and less successful students becomes roughly balanced.  
+- This balance makes the comparison between the two groups clearer.
+
+---
+
+## 📊 Data Insights
+
+- The relationship between **study hours** and **final grades** shows a strong positive trend.  
+- **Sleep hours** also play an important role — moderate sleep correlates with better performance.  
+- On the other hand, **student participation** doesn’t show a clear pattern and might not be a strong predictor.
+
+These findings guided the feature selection for the model.
+
+---
+
+## ⚙️ Model and App Files
+
+- `student_success_model.pkl` → This file stores the **trained machine learning model** (basically the “brain” that remembers how to predict).
+- `app.py` → A **Streamlit web app** that allows you to interact with the model via a simple web interface.  
+  (To run it, you can later learn how to use:  
+  ```bash
+  streamlit run app.py
